@@ -1,3 +1,6 @@
+# Solar Sleep App
+
+This app is intended to track user early morning sun lux exposure and sleep quality.
 
 # EDA Project
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
