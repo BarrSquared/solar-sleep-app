@@ -19,6 +19,7 @@ import DataLogger from '../DataLogger/DataLogger';// fix updated to DataLogger
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage'; 
 import RegisterPage from '../RegisterPage/RegisterPage';
+import DataUoDPage from '../DataUoDPage/DataUoDPage';
 
 import './App.css';
 
@@ -68,6 +69,13 @@ function App() {
             <DataLogger />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows DataUoDPage
+            exact
+            path="/datauodpage"
+          >
+            <DataUoDPage />
+          </ProtectedRoute>
           <Route
             exact
             path="/login"

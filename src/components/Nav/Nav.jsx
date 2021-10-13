@@ -31,6 +31,9 @@ function Nav() {
             <Link className="navLink" to="/datalogger">
               Data Logger
             </Link>
+            <Link className="navLink" to="/datauodpage">
+              Data Update or Delete
+            </Link>
 
             <LogOutButton className="navLink" />
           </>
