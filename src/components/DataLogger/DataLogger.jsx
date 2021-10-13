@@ -18,6 +18,7 @@ function DataLogger() {
   
   const handelSubmit = (event) => {
     event.preventDefault();
+    dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
     console.log('In DataLogger, clicking form submit');
   }
 
@@ -88,7 +89,7 @@ function DataLogger() {
          <p>Record your mood for the day on a scale from 1 to 5, with 1 being the worst and 5 being the best.</p>
         <input
         required
-        type='time'
+        type='number'
         placeholder='Start Time of Exposure'
         value={newExposureLog.mood}
         onChange={ (event) =>
