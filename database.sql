@@ -16,4 +16,19 @@ CREATE TABLE "user" (
     "date_of_birth" DATE NOT NULL
 );
 
+-- Table to store individual users data
+CREATE TABLE "exposuredata" (
+	"id" SERIAL PRIMARY KEY,
+	"user_id" INT REFERENCES "user",
+	"hours_sleep" INT not null,
+	"sleep_quality" INT not null,
+	"start_lux_meter" INT not null,
+	"end_lux_meter" INT not null,
+	"start_lux_exposure_time" TIME not null,
+	"end_lux_exposure_time" TIME not null,
+	"mood_for_day" INT not null,
+	"journal_entry" VARCHAR (250),
+	"date" date not null default CURRENT_DATE
+);
+
 
