@@ -19,7 +19,7 @@ function DataLogger() {
   const handelSubmit = (event) => {
     event.preventDefault();
     dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
-    console.log('In DataLogger, clicking form submit');
+    // console.log('In DataLogger, clicking form submit');
   }
 
   const handelCancel = () => {
