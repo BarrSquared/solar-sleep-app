@@ -16,6 +16,8 @@ router.get('/', (req, res) => {
 // add '/newaddress' and in other files it would '/datalogger/newaddress'
 router.post('/', (req, res) => { 
   // POST route code here, to post input data from datalogger page
+  console.log('WTF user id: ', req.user.id);
+  const userId = req.user.id;
   const hoursSleep = req.body.hoursSleep;
   const sleepQuality = req.body.sleepQuality;
   const startLux = req.body.startLux; 
@@ -27,9 +29,9 @@ router.post('/', (req, res) => {
 
   const queryText = `
 INSERT INTO "exposuredata" ("user_id", "hours_sleep", "sleep_quality", "start_lux_meter", "end_lux_meter", "start_lux_exposure_time", "end_lux_exposure_time", "mood_for_day", "journal_entry")
-VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
-  `;
-  pool.query(queryText, [hoursSleep, sleepQuality, startLux, endLux, startTime, endTime, mood, journalEntry])
+VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);
+  `;                // user.id
+  pool.query(queryText, [userId, hoursSleep, sleepQuality, startLux, endLux, startTime, endTime, mood, journalEntry])
   .then(() => res.sendStatus(201))
   .catch((err) => {
       console.log('Error in router posting new log: ', err);
