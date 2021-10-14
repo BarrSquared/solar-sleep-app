@@ -9,7 +9,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const data
+const dataloggerRouter = require('./routes/datalogger.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -24,6 +24,8 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+// route for POST, UPDATE, and DELETE for input lux/sleep data
+app.use('/api/datalogger', dataloggerRouter)
 
 // Serve static files
 app.use(express.static('build'));
