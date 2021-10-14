@@ -30,6 +30,7 @@ function DataLogger() {
   return (
     <div className="container">
       <h3>Data Logger</h3>
+      <p> </p>
       <p>Fill out form below to record today's lux exposure data and sleep quality metrics.</p>
       <form onSubmit={handelSubmit}>
         <p>Approximate hours of sleep.</p>
