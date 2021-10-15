@@ -10,6 +10,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const dataloggerRouter = require('./routes/datalogger.router');
+const dashdisplayRouter = require('./routes/dashdisplay.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -25,7 +26,9 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 // route for POST, UPDATE, and DELETE for input lux/sleep data
-app.use('/api/datalogger', dataloggerRouter)
+app.use('/api/datalogger', dataloggerRouter);
+// route for GETting data from server, to append on dashboard
+app.use('/api/dashdisplay', dashdisplayRouter);
 
 // Serve static files
 app.use(express.static('build'));
