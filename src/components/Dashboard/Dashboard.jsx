@@ -8,9 +8,14 @@ function Dashboard() {
   const user = useSelector((store) => store.user);
   const dashData = useSelector((store) => store.dashdisplayReducer);
 
-  useEffect(() => {
+  const dispData = () => {
     dispatch({ type: 'SET_DASHBOARD_TABLE'});
-  }, [dispatch]);
+  }
+
+  useEffect(() => {
+    // dispatch({ type: 'SET_DASHBOARD_TABLE'});
+    dispData();
+  }, []);
 
   return (
     <div className="container">

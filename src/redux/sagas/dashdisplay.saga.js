@@ -14,7 +14,8 @@ function* fetchDashData(action) {
 function* displayDashSaga() {
     // Saga listening for trigger to SET user data,
     // to be stored in state then appended to DOM
-    yield takeLatest('SET_DASHBOARD_TABLE', fetchDashData);
+    //todo change to FETCH and reroute
+    yield takeLatest('FETCH_DASHBOARD_TABLE', fetchDashData);
 }
 
 export default displayDashSaga;
