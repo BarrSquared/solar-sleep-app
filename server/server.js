@@ -25,7 +25,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-// route for POST, UPDATE, and DELETE for input lux/sleep data
+// route for POSTing user input lux/sleep data
 app.use('/api/datalogger', dataloggerRouter);
 // route for GETting data from server, to append on dashboard
 app.use('/api/dashdisplay', dashdisplayRouter);

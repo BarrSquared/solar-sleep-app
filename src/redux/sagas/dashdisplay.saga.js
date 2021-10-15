@@ -5,7 +5,7 @@ function* displayDash(action) {
     try {
         console.log('Action from displayDashSaga. Action: ', action);
         const displayData = action.payload;
-        yield axios.get('/api/displaydash', displayData);
+        yield axios.get('/api/dashdisplay', displayData);
     } catch(error) {
         console.log('Error in SETting user dashboard table, error: ', error);
     }

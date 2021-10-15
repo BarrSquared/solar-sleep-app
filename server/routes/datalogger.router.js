@@ -5,9 +5,9 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
-  // GET route code here
-});
+// router.get('/', (req, res) => {
+//   // GET route code here
+// });
 
 /**
  * POST route template
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 // add '/newaddress' and in other files it would '/datalogger/newaddress'
 router.post('/', (req, res) => { 
   // POST route code here, to post input data from datalogger page
-  console.log('WTF user id: ', req.user.id);
+//   console.log('WTF user id: ', req.user.id);
   const userId = req.user.id;
   const hoursSleep = req.body.hoursSleep;
   const sleepQuality = req.body.sleepQuality;
