@@ -1,11 +1,11 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* displayDash(action) {
+function* fetchDashData(action) {
     try {
         console.log('Action from displayDashSaga. Action: ', action);
-        const displayData = action.payload;
-        yield axios.get('/api/dashdisplay', displayData);
+        const userDashData = yield axios.get('/api/dashdisplay');
+        yield put({type: 'SET_DASHBOARD_TABLE', payload: userDashData.data});
     } catch(error) {
         console.log('Error in SETting user dashboard table, error: ', error);
     }
@@ -14,7 +14,7 @@ function* displayDash(action) {
 function* displayDashSaga() {
     // Saga listening for trigger to SET user data,
     // to be stored in state then appended to DOM
-    yield takeLatest('SET_DASHBOARD_TABLE', displayDash);
+    yield takeLatest('SET_DASHBOARD_TABLE', fetchDashData);
 }
 
 export default displayDashSaga;
