@@ -32,6 +32,7 @@ function Dashboard() {
       <p> {JSON.stringify(dashData)} </p>
       <br />
       <div>
+        <p>Click on day to edit or delete log.</p>
         <Calendar onChange={onChange} value={value} />
       </div>
       <br />
