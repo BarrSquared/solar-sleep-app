@@ -15,11 +15,11 @@ function AboutPage() {
             exposure data and how to log it. 
         </p>
         <p>
-            For the youtube video, jump to 55:40 for Andrew Huberman's explanation and protocol.
+        Andrew Huberman's explanation and protocol.
         </p>
-        {/* question about setting auto start to 55:40 */}
-        <iframe width="420" height="315"
-        src="https://www.youtube.com/embed/nm1TxQj9IsQ?&autoplay=1">
+        
+        <iframe width="350" height="275"
+        src="https://www.youtube.com/embed/nm1TxQj9IsQ?&start=3340">
         </iframe>
       </div>
     </div>

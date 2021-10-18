@@ -27,8 +27,8 @@ function Dashboard() {
 
   return (
     <div className="container">
-      <h3>Welcome, {user.username}!</h3>
-      <p>Your ID is: {user.id}</p>
+      <h3>Stay solar, {user.username}!</h3>
+      {/* <p>Your ID is: {user.id}</p> */}
       <p> {JSON.stringify(dashData)} </p>
       <br />
       <div>

@@ -5,7 +5,7 @@
 const dashdisplayReducer = (state = [], action) => {
     switch (action.type) {
         // changed form SET to FETCH, need to remap route/dispatch
-        case 'FETCH_DASHBOARD_TABLE':
+        case 'SET_DASHBOARD_TABLE':
             return action.payload;
             // spread?
         default:
