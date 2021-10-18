@@ -4,9 +4,10 @@
 // making table reducer to pull data when user logs in and when they make updates
 const dashdisplayReducer = (state = [], action) => {
     switch (action.type) {
-        // todo changed form SET to FETCH, need to remap route/dispatchs
-        case 'FETCH_EXPOSURE_TABLE':
+        // changed form SET to FETCH, need to remap route/dispatch
+        case 'FETCH_DASHBOARD_TABLE':
             return action.payload;
+            // spread?
         default:
             return state;
     }

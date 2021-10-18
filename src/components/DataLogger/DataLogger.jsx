@@ -18,6 +18,7 @@ function DataLogger() {
   
   const handelSubmit = (event) => {
     event.preventDefault();
+    // should I add a spread operator here?
     dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
     // console.log('In DataLogger, clicking form submit');
   }

@@ -6,6 +6,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 /**
  * GET route template
  */
+//todo: Should router.get('/) have /:id?
 router.get('/', rejectUnauthenticated, (req, res) => {
   // GET route code here
   console.log('In dashdisplay router GET.');

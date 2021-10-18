@@ -9,7 +9,7 @@ function* logNewData(action) {
         // posting new user lux/sleep data to the server
         yield axios.post('/api/datalogger', newData);
         // after it goes to server, PUT to set the dashboard table after user inputs data
-        yield put({type: 'SET_DASHBOARD_TABLE'}); 
+        yield put({type: 'FETCH_DASHBOARD_TABLE'}); 
     } catch(error) {
         console.log('Error in posting new log', error);
     }

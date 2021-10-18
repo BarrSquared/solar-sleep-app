@@ -9,6 +9,8 @@ function Dashboard() {
   const dashData = useSelector((store) => store.dashdisplayReducer);
 
   const dispData = () => {
+    //todo do I need a fetch also 
+    // todo or am i calling it in the loop set will run into?
     dispatch({ type: 'SET_DASHBOARD_TABLE'});
   }
 

@@ -5,6 +5,7 @@ function* fetchDashData(action) {
     try {
         console.log('Action from displayDashSaga. Action: ', action);
         const userDashData = yield axios.get('/api/dashdisplay');
+        // yield put is another word for dispatch
         yield put({type: 'SET_DASHBOARD_TABLE', payload: userDashData.data});
     } catch(error) {
         console.log('Error in SETting user dashboard table, error: ', error);
