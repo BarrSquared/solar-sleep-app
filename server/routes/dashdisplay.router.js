@@ -14,7 +14,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   const userId = req.user.id;
   const queryText = `
     SELECT * FROM "exposuredata" WHERE "user_id" = $1
-    ORDER BY "date" DESC;
+    ORDER BY "date" DESC
+    LIMIT 30;
   `;
   pool.query(queryText, [userId])
     .then((results) => res.send(results.rows))

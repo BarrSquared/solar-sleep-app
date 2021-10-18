@@ -21,6 +21,7 @@ function DataLogger() {
     // should I add a spread operator here?
     dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
     // console.log('In DataLogger, clicking form submit');
+    history.push("/dashboard");
   }
 
   const handelCancel = () => {
@@ -99,7 +100,7 @@ function DataLogger() {
         />
         <p>Optional journal entry for how you felt about your sleep or mood throughout the day.</p>
         <input
-        required
+        
         type='text'
         placeholder='250 Character Limit'
         value={newExposureLog.journalEntry}
