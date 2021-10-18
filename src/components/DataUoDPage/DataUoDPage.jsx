@@ -9,6 +9,7 @@ function DataUoDPage() {
     const history = useHistory();
     const currentEntry = useSelector((store) => store.dashdisplayReducer);
     
+    //todo add var for current exposure.id based on id clicked from dash
     const [ newExposureLog, setNewExposureLog ] = useState({
       hoursSleep: 0, sleepQuality: 0, startLux: 0, endLux: 0, startTime: '', endTime: '', mood: 0, journalEntry: '',  
     });
@@ -33,11 +34,11 @@ function DataUoDPage() {
       <div className="container">
         <h3>Update Or Delete Data</h3>
         <p></p>
-        <button onClick={handleDelete}>Delete entire Log for this day</button>
+        <button onClick={handleDelete}>Delete entire log for this day</button>
 
-        <p> </p>
+        <p>To update </p>
         <form onSubmit={handelSubmit}>
-          <p>The current approximate hours of sleep for this date are: ??? . Leave blank or enter new data below. </p>
+          <p>The current hours of sleep is: ??? </p>
           <input
           required
           type='number'
@@ -46,7 +47,7 @@ function DataUoDPage() {
           onChange={ (event) =>
           setNewExposureLog({...newExposureLog, hoursSleep: event.target.value})}
           />
-          <p>The current quality of sleep rating is: ??? . Leave blank or enter new data below</p>
+          <p>The current quality of sleep rating is: ??? </p>
           <input
           required
           type='number'
@@ -55,7 +56,7 @@ function DataUoDPage() {
           onChange={ (event) =>
           setNewExposureLog({...newExposureLog, sleepQuality: event.target.value})}
           />
-          <p>Record the lux meter reading from the START of your exposure.</p>
+          <p>Lux meter reading from the START of exposure was: ???</p>
           <input
           required
           type='number'
@@ -64,7 +65,7 @@ function DataUoDPage() {
           onChange={ (event) =>
           setNewExposureLog({...newExposureLog, startLux: event.target.value})}
           />
-          <p>Record the lux meter reading from the END of your exposure.</p>
+          <p>Lux meter reading from the END of exposure was: ???</p>
           <input
           required
           type='number'
@@ -73,7 +74,7 @@ function DataUoDPage() {
           onChange={ (event) =>
           setNewExposureLog({...newExposureLog, endLux: event.target.value})}
           />
-          <p>Record the START time of your exposure to nearest minute.</p>
+          <p>The START time of your exposure was: ???</p>
           <input
           required
           type='time'
@@ -82,7 +83,7 @@ function DataUoDPage() {
           onChange={ (event) =>
           setNewExposureLog({...newExposureLog, startTime: event.target.value})}
           />
-          <p>Record the END time of your exposure to nearest minute.</p>
+          <p>The END time of your exposure was: ???</p>
           <input
           required
           type='time'
@@ -91,7 +92,7 @@ function DataUoDPage() {
           onChange={ (event) =>
           setNewExposureLog({...newExposureLog, endTime: event.target.value})}
           />
-           <p>Record your mood for the day on a scale from 1 to 5, with 1 being the worst and 5 being the best.</p>
+           <p>Your mood for the day on a scale from 1 to 5 was: ???</p>
           <input
           required
           type='number'
@@ -101,6 +102,7 @@ function DataUoDPage() {
           setNewExposureLog({...newExposureLog, mood: event.target.value})}
           />
           <p>Optional journal entry for how you felt about your sleep or mood throughout the day.</p>
+          <p> ??? </p>
           <input
           required
           type='text'
@@ -112,7 +114,7 @@ function DataUoDPage() {
   
           <br />
           <button onClick={handelCancel}>Cancel</button>
-          <button type="submit">Submit Daily Data Log</button>
+          <button type="submit">Update Daily Data Log</button>
         </form>
       </div>
     );
