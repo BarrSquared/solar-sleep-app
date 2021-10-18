@@ -29,7 +29,7 @@ function DataDisplayTable() {
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        {/* add component for dash table */}
                     </tbody>
                 </table>
             </div>
