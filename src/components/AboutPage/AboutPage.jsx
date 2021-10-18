@@ -12,11 +12,14 @@ function AboutPage() {
         <p>This about page is for anyone to read!</p>
         <p>
             This section will explain the other app needed to collect lux
-            exposure data and how to log it.
+            exposure data and how to log it. 
         </p>
-        {/* question for "m.youtube.com refused to connect." error */}
+        <p>
+            For the youtube video, jump to 55:40 for Andrew Huberman's explanation and protocol.
+        </p>
+        {/* question about setting auto start to 55:40 */}
         <iframe width="420" height="315"
-        src="https://www.youtube.com/watch?v=H-XfCl-HpRM">
+        src="https://www.youtube.com/embed/nm1TxQj9IsQ?&autoplay=1">
         </iframe>
       </div>
     </div>
