@@ -7,6 +7,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
  * GET route template
  */
 //todo: Should router.get('/) have /:id?
+//todo route for a month's worth of data to dash table
 router.get('/', rejectUnauthenticated, (req, res) => {
   // GET route code here
   console.log('In dashdisplay router GET.');
@@ -25,10 +26,42 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
+//todo Route for a week's worth of data to dash table
+router.get('/', rejectUnauthenticated, (req, res) => {
+  // GET route code here
+  console.log('In dashdisplay router GET.');
+  console.log('In display GET, req.user: ', req.user.id);
+  const userId = req.user.id;
+  const queryText = `
+    SELECT * FROM "exposuredata" WHERE "user_id" = $1
+    ORDER BY "date" DESC
+    LIMIT 7;
+  `;
+  pool.query(queryText, [userId])
+    .then((results) => res.send(results.rows))
+    .catch((error) => {
+        console.log('Error making SELECT for user dashboard table: ', error);
+        res.sendStatus(500);
+    })
+});
+
 /**
- * POST route template
+ * DELETE route, need id for specific data to delete? 
+ *              how to set url correctly?
+ * OR use route in datalogger router?
  */
-// router.post('/', (req, res) => {
+// router.delete('/', (req, res) => {
+//   // delete route code here
+
+// });
+
+/**
+ * PUT route, need id for specific data to replace?
+ *              how to set url correctly?
+ *  OR use route in datalogger router?
+ * 
+ */
+// router.put('/', (req, res) => {
 //   // POST route code here
 // });
 

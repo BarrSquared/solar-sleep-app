@@ -13,6 +13,12 @@ function DataDisplayTable() {
         dispData();
     }, []);
 
+    // some kind of handle delete
+
+    // some kind of edit function or toggle?
+
+    // handle edit/update/put, with var's for data to replace
+
     return (
         <div className="displayTable">
             <h3>Weekly Log</h3>
@@ -28,7 +34,8 @@ function DataDisplayTable() {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* add component for dash table */}
+                        {/* add component for dash table 
+                        How to map over data from server in table?*/}
                     </tbody>
                 </table>
             </div>

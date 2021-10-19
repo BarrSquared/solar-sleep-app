@@ -4,7 +4,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template
+ * PUT route template
  */
 // router.get('/', (req, res) => {
 //   // GET route code here
@@ -13,29 +13,29 @@ const router = express.Router();
 /** 
  * DELETE route
  */
-
-router.delete('/:id', rejectUnauthenticated, (req, res) => {
-  const logId = req.params.id;
-  const userId = req.user.id;
-  const queryText = `
-  DELETE FROM "exposuredata" WHERE ("id" = $1 AND "user_id" = $2);
-  `;
-  pool.query(queryText, [logId, userId])
-  .then((result) => {
-    res.sendStatus(201);
-  })
-  .catch((err) => {
-    console.log('Error in deleting log. Error: ', err);
-    res.sendStatus(500);
-  })
-});
+//todo start of delete
+// router.delete('/:id', rejectUnauthenticated, (req, res) => {
+//   const logId = req.params.id;
+//   const userId = req.user.id;
+//   const queryText = `
+//   DELETE FROM "exposuredata" WHERE ("id" = $1 AND "user_id" = $2);
+//   `;
+//   pool.query(queryText, [logId, userId])
+//   .then((result) => {
+//     res.sendStatus(201);
+//   })
+//   .catch((err) => {
+//     console.log('Error in deleting log. Error: ', err);
+//     res.sendStatus(500);
+//   })
+// });
 
 /**
  * POST route template
  */
 // if I need another kind of POST, 
 // add '/newaddress' and in other files it would '/datalogger/newaddress'
-router.post('/', (req, res) => { 
+router.post('/:id', (req, res) => { 
   // POST route code here, to post input data from datalogger page
 //   console.log('WTF user id: ', req.user.id);
   const userId = req.user.id;

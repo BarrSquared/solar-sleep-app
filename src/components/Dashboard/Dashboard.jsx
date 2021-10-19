@@ -3,7 +3,8 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector, useDispatch } from 'react-redux';
 import Calendar from 'react-calendar';
 import DataDisplayTable from '../DataDisplayTable/DataDisplayTable';
-
+// import { GiSundial } from "react-icons/gi";
+// test sundial
 
 function Dashboard() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM

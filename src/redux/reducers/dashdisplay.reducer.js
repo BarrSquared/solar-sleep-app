@@ -8,6 +8,9 @@ const dashdisplayReducer = (state = [], action) => {
         case 'SET_DASHBOARD_TABLE':
             return action.payload;
             // spread?
+            // need other cases for editing specific 
+            // some kind of data/id and nomenclature
+            // what does that return look like?
         default:
             return state;
     }
