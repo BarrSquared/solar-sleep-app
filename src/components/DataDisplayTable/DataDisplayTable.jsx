@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import DataDisplayRow from '../DataDisplayRow/DataDisplayRow';
 
 function DataDisplayTable() {
     const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function DataDisplayTable() {
     // const startLux = dashData.startLux;
     // const endLux = dashData.endLux;
     // const avgLux = ((startLux + endLux)/2);
+    // const startTime = dashData.startTime;
+    // const endTime = dashData.endTime;
+    // const timeOfExposure = (startTime - endTime);
 
     // var? / function to figure total time of exposure
 
@@ -37,10 +41,12 @@ function DataDisplayTable() {
                             <th>Hours of Sleep</th>
                             <th>Quality of Sleep</th>
                             <th>Avg Lux Exposure</th>
+                            <th>Duration of Exposure</th>
                             <th>Mood Rating</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <DataDisplayRow />
                         {/* {dashData.map((log) => {
                             return(<>
                                 <tr>
@@ -48,6 +54,7 @@ function DataDisplayTable() {
                                     <td>{log.hoursSleep}</td>
                                     <td>{log.sleepQuality}</td>
                                     <td>{avgLux}</td>
+                                    <td>{timeOfExposure}</td>
                                     <td>{log.mood}</td>
                                 </tr>
                             </>)
