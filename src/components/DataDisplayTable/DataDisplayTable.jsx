@@ -18,6 +18,10 @@ function DataDisplayTable() {
     // some kind of edit function or toggle?
 
     // handle edit/update/put, with var's for data to replace
+    
+    // var? / function to take in start lux, end lux and avg
+
+    // var? / function to figure total time of exposure
 
     return (
         <div className="displayTable">
@@ -34,6 +38,17 @@ function DataDisplayTable() {
                         </tr>
                     </thead>
                     <tbody>
+                        {dashData.map((log) => {
+                            return(<>
+                                <tr>
+                                    <td>{log.date}</td>
+                                    <td>{log.hoursSleep}</td>
+                                    <td>{log.sleepQuality}</td>
+                                    {/* <td>{log.date}</td>
+                                    <td>{log.date}</td> */}
+                                </tr>
+                            </>)
+                        })}
                         {/* add component for dash table 
                         How to map over data from server in table?*/}
                     </tbody>

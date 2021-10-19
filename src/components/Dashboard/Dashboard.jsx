@@ -26,6 +26,13 @@ function Dashboard() {
   //   dispData();
   // }, []);
 
+  // function for on click in calendar
+
+  // todo in another component do below
+  // set up local state for date selection, based on 
+  // click event (handleSelect) from calendar, using MUI
+  // in hS, dispatch 
+
   return (
     <div className="container">
       <h3>Stay solar, {user.username}!</h3>
@@ -36,6 +43,7 @@ function Dashboard() {
         <p>Click on day to edit or delete log.</p>
         <Calendar onChange={onChange} value={value} />
       </div>
+      <>  </>
       <br />
       <DataDisplayTable />
 
