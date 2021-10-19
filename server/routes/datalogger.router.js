@@ -1,4 +1,5 @@
 const express = require('express');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const pool = require('../modules/pool');
 const router = express.Router();
 
@@ -8,6 +9,26 @@ const router = express.Router();
 // router.get('/', (req, res) => {
 //   // GET route code here
 // });
+
+/** 
+ * DELETE route
+ */
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  const logId = req.params.id;
+  const userId = req.user.id;
+  const queryText = `
+  DELETE FROM "exposuredata" WHERE ("id" = $1 AND "user_id" = $2);
+  `;
+  pool.query(queryText, [logId, userId])
+  .then((result) => {
+    res.sendStatus(201);
+  })
+  .catch((err) => {
+    console.log('Error in deleting log. Error: ', err);
+    res.sendStatus(500);
+  })
+});
 
 /**
  * POST route template

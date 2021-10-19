@@ -15,9 +15,23 @@ function* logNewData(action) {
     }
 }
 
+function* deleteCurrentLog(action) {
+    try {
+        console.log('Action in deleteCurrentLog. Action: ', action);
+        const logId = action.payload.id;
+        const logDate = action.payload.date;
+        yield axios.delete(`/api/datalogger/${logId}`);
+        yield put({ type: 'FETCH_DASHBOARD_TABLE' });
+    } catch(error) {
+        console.log('Error deleting log, error: ', error);
+    }
+}
+
 function* dataLoggerSaga() {
     // Saga listening for trigger to add new data
     yield takeLatest('ADD_NEW_LOG', logNewData);
+
+    yield takeLatest('DELETE_CURRENT_LOG', deleteCurrentLog);
 }
 
 export default dataLoggerSaga;
