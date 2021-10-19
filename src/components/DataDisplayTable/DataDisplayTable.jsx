@@ -20,6 +20,9 @@ function DataDisplayTable() {
     // handle edit/update/put, with var's for data to replace
     
     // var? / function to take in start lux, end lux and avg
+    // const startLux = dashData.startLux;
+    // const endLux = dashData.endLux;
+    // const avgLux = ((startLux + endLux)/2);
 
     // var? / function to figure total time of exposure
 
@@ -38,17 +41,17 @@ function DataDisplayTable() {
                         </tr>
                     </thead>
                     <tbody>
-                        {dashData.map((log) => {
+                        {/* {dashData.map((log) => {
                             return(<>
                                 <tr>
                                     <td>{log.date}</td>
                                     <td>{log.hoursSleep}</td>
                                     <td>{log.sleepQuality}</td>
-                                    {/* <td>{log.date}</td>
-                                    <td>{log.date}</td> */}
+                                    <td>{avgLux}</td>
+                                    <td>{log.mood}</td>
                                 </tr>
                             </>)
-                        })}
+                        })} */}
                         {/* add component for dash table 
                         How to map over data from server in table?*/}
                     </tbody>
