@@ -4,27 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 
 
-function DataUoDRow() {
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const currentEntry = useSelector((store) => store.dashdisplayReducer);
-    
-    //todo add var for current exposure.id based on id clicked from dash
-    const [ newExposureLog, setNewExposureLog ] = useState({
-      hoursSleep: 0, sleepQuality: 0, startLux: 0, endLux: 0, exposureMinutes: 0, mood: 0, journalEntry: '',  
-    });
-    
-
-  
-    // const handelCancel = () => {
-      
-    // }
-
-    // const handleDelete = () => {
-    //     console.log('Clicking delete in DataUoD');
-    // }
-    
-      
+const DataUoDRow = ({
+  editLogData,
+  handleEditLogChange,
+  handleCancelClick,
+}) =>{  
     return (
       <tr>
         <td>
@@ -61,7 +45,7 @@ function DataUoDRow() {
           <input
           required
           type='number'
-          placeholder='Start Lux Exposure'
+          placeholder='End Lux Exposure'
           value={newExposureLog.endLux}
           onChange={ (event) =>
           setNewExposureLog({...newExposureLog, endLux: event.target.value})}
@@ -111,7 +95,7 @@ function DataUoDRow() {
 
     );
   }
-  
+
 
 
 export default DataUoDRow;

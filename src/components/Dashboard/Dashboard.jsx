@@ -26,15 +26,6 @@ function Dashboard() {
   //   dispData();
   // }, []);
 
-  // function for on click in calendar
-
-  // todo in another component do below
-  // set up local state for date selection, based on 
-  // click event (handleSelect) from calendar, using MUI
-  // in hS, dispatch 
-
-  // const [isToggled, setIsToggled] = useState(initialState(false));
-
   // const [value, setValue] = useState(new Date());
 
   // function onChange(nextValue) {
@@ -56,8 +47,8 @@ function Dashboard() {
       <>  </> */}
       <br />
       <DataDisplayTable />
-      
-
+      <br />
+      <br />
       <LogOutButton className="btn" />
     </div>
   );

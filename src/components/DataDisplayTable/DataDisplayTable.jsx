@@ -6,7 +6,7 @@ import DataUoDRow from '../DataUoDRow/DataUoDRow';
 
 function DataDisplayTable() {
     const dispatch = useDispatch();
-    const dataLogs = useSelector((store) => store.dashdisplayReducer);
+    const [dataLogs, setDataLogs] = useSelector((store) => store.dashdisplayReducer);
     const [editLogId, setEditLogId] = useState(null);
     const [editLogData, setEditLogData] = useState({
         hoursSleep: 0, sleepQuality: 0, startLux: 0, endLux: 0, exposureMinutes: 0, mood: 0, 
@@ -24,7 +24,7 @@ function DataDisplayTable() {
         setEditLogId(null);
     }
 
-    const handleEditClick = (event, contact) => {
+    const handleEditClick = (event, log) => {
         event.preventDefault();
         setEditLogId(log.id);
 
@@ -41,22 +41,50 @@ function DataDisplayTable() {
     }
 
     const handleDeleteClick = (logId) => {
+// todo 
+        const newLog = [...dataLogs];
 
+        // const index = dataLogs.findIndex((log) => log.id === logId);
+
+        // newLog.splice(index, 1);
+
+        // setDataLogs(newLog);
     }
 
+    const handleEditLogSubmit = (event) => {
+        event.preventDefault();
+
+        const editedLog = {
+            LogId: editLogId,
+            date: editLogData.date,
+            houseSleep: editLogData.hoursSleep,
+            sleepQuality: editLogData.sleepQuality,
+            startLux: editLogData.startLux,
+            endLux: editLogData.endLux,
+            exposureMinutes: editLogData.exposureMinutes,
+            mood: editLogData.mood,
+        };
+        dispatch({ type: 'EDIT_CURRENT_LOG', payload: editedLog });
+        // can i dispatch twice like this?
+        dispatch({ type: 'FETCH_DASHBOARD_TABLE' });
+// todo is this the right way to add to reducer?
+       
+    } 
     
 
     return (
         <div className="displayTable">
             <h3>Weekly Log</h3>
             <div className="dataTable">
+                <form onSubmit={handleEditLogSubmit}>
                 <table className="dataTable">
                     <thead>
                         <tr>
                             <th>Date</th>
                             <th>Hours of Sleep</th>
                             <th>Quality of Sleep</th>
-                            <th>Avg Lux Exposure</th>
+                            <th>Start Lux</th>
+                            <th>End Lux</th>
                             <th>Exposure Duration</th>
                             <th>Mood Rating</th>
                             <th>Actions</th>
@@ -68,8 +96,8 @@ function DataDisplayTable() {
                         <Fragment>
                             {editLogId === log.id ? (
                                 <DataUoDRow
-                                editFormData={editFormData}
-                                handleEditFormChange={handleEditFormChange}
+                                editLogData={editLogData}
+                                handleEditLogChange={handleEditLogChange}
                                 handleCancelClick={handleCancelClick}
                                 />
                             ) : (
@@ -84,6 +112,7 @@ function DataDisplayTable() {
                        
                     </tbody>
                 </table>
+                </form>
             </div>
 
         </div>
