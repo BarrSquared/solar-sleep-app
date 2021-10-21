@@ -66,7 +66,7 @@ function DataLogger() {
         <input
         required
         type='number'
-        placeholder='Start Lux Exposure'
+        placeholder='End Lux Exposure'
         value={newExposureLog.endLux}
         onChange={ (event) =>
         setNewExposureLog({...newExposureLog, endLux: event.target.value})}
@@ -76,7 +76,7 @@ function DataLogger() {
         required
         type='number'
         placeholder='Minutes of Exposure'
-        value={newExposureLog.startTime}
+        value={newExposureLog.exposureMinutes}
         onChange={ (event) =>
         setNewExposureLog({...newExposureLog, exposureMinutes: event.target.value})}
         />
