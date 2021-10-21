@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 import DataDisplayRow from '../DataDisplayRow/DataDisplayRow';
+import DataUoDRow from '../DataUoDRow/DataUoDRow';
 
 function DataDisplayTable() {
     const dispatch = useDispatch();
-    const dashData = useSelector((store) => store.dashdisplayReducer);
+    const dataLogs = useSelector((store) => store.dashdisplayReducer);
+    const [editLogId, setEditLogId] = useState(null);
+    const [editLogData, setEditLogData] = useState({
+        hoursSleep: 0, sleepQuality: 0, startLux: 0, endLux: 0, exposureMinutes: 0, mood: 0, 
+    })
 
     const dispData = () => {
         dispatch({ type: 'FETCH_DASHBOARD_TABLE'});
@@ -15,21 +20,9 @@ function DataDisplayTable() {
         dispData();
     }, []);
 
-    // some kind of handle delete
-
-    // some kind of edit function or toggle?
-
-    // handle edit/update/put, with var's for data to replace
     
-    // var? / function to take in start lux, end lux and avg
-    // const startLux = dashData.startLux;
-    // const endLux = dashData.endLux;
-    // const avgLux = ((startLux + endLux)/2);
-    // const startTime = dashData.startTime;
-    // const endTime = dashData.endTime;
-    // const timeOfExposure = (startTime - endTime);
 
-    // var? / function to figure total time of exposure
+    
 
     return (
         <div className="displayTable">
@@ -48,7 +41,24 @@ function DataDisplayTable() {
                         </tr>
                     </thead>
                     <tbody>
-                    <DataDisplayRow />
+                    {/* <DataDisplayRow /> */}
+                    {dataLogs.map((log) => (
+                        <Fragment>
+                            {editLogId === log.id ? (
+                                <DataUoDRow
+                                editFormData={editFormData}
+                                handleEditFormChange={handleEditFormChange}
+                                handleCancelClick={handleCancelClick}
+                                />
+                            ) : (
+                                <DataDisplayRow
+                                log={log}
+                                handleEditClick={handleEditClick}
+                                handleDeleteClick={handleDeleteClick}
+                                />
+                            )}
+                        </Fragment>
+                    ))}
                        
                     </tbody>
                 </table>

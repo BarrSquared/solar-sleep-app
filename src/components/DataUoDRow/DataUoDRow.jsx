@@ -14,20 +14,15 @@ function DataUoDRow() {
       hoursSleep: 0, sleepQuality: 0, startLux: 0, endLux: 0, exposureMinutes: 0, mood: 0, journalEntry: '',  
     });
     
-    const handelSubmit = (event) => {
-      event.preventDefault();
-      // should I add a spread operator here?
-      dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
-      // console.log('In DataLogger, clicking form submit');
-    }
-  
-    const handelCancel = () => {
-      history.push("/dashboard");
-    }
 
-    const handleDelete = () => {
-        console.log('Clicking delete in DataUoD');
-    }
+  
+    // const handelCancel = () => {
+      
+    // }
+
+    // const handleDelete = () => {
+    //     console.log('Clicking delete in DataUoD');
+    // }
     
       
     return (

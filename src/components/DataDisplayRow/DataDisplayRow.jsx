@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import moment from "moment";
 
-function DataDisplayTable() {
+function DataDisplayTable({ log, handleEditClick, handleDeleteClick }) {
     const dispatch = useDispatch();
     const dashData = useSelector((store) => store.dashdisplayReducer);
 
@@ -18,7 +18,7 @@ function DataDisplayTable() {
     const startLux = dashData.start_lux_meter;
     const endLux = dashData.end_lux_meter;
     const avgLux = ((startLux + endLux)/2);
-    const dateToDisplay = moment(dashData.date).format('YYYY-MM-DD');
+    const dateToDisplay = moment(dashData.date).format('MM-DD');
 
     return (
     <>
