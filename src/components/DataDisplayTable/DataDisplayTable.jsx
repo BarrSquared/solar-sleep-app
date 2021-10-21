@@ -20,7 +20,29 @@ function DataDisplayTable() {
         dispData();
     }, []);
 
-    
+    const handleCancelClick = () => {
+        setEditLogId(null);
+    }
+
+    const handleEditClick = (event, contact) => {
+        event.preventDefault();
+        setEditLogId(log.id);
+
+        const formValues = {
+            date: log.date,
+            houseSleep: log.hoursSleep,
+            sleepQuality: log.sleepQuality,
+            startLux: log.startLux,
+            endLux: log.endLux,
+            exposureMinutes: log.exposureMinutes,
+            mood: log.mood,
+        };
+        setEditLogData(formValues);
+    }
+
+    const handleDeleteClick = (logId) => {
+
+    }
 
     
 

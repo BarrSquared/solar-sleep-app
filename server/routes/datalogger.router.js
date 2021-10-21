@@ -47,7 +47,7 @@ router.post('/:id', (req, res) => {
   const mood = req.body.mood;
 
   const queryText = `
-INSERT INTO "exposuredata" ("user_id", "hours_sleep", "sleep_quality", "start_lux_meter", "end_lux_meter", "exposure_time", "mood_for_day", "journal_entry")
+INSERT INTO "exposuredata" ("user_id", "hours_sleep", "sleep_quality", "start_lux_meter", "end_lux_meter", "exposure_time", "mood_for_day")
 VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
   `;                // user.id
   pool.query(queryText, [userId, hoursSleep, sleepQuality, startLux, endLux, exposureMinutes, mood])

@@ -17,8 +17,13 @@ function DataDisplayTable({ log, handleEditClick, handleDeleteClick }) {
     // var? / function to take in start lux, end lux and avg
     const startLux = dashData.start_lux_meter;
     const endLux = dashData.end_lux_meter;
-    const avgLux = ((startLux + endLux)/2);
-    const dateToDisplay = moment(dashData.date).format('MM-DD');
+    // const avgLux = (startLux, endLux) => {
+    //     average = ((startLux + endLux)/2);
+    // }
+
+
+
+    const dateToDisplay = moment(dashData.date).format('YYYY-MM-DD');
 
     return (
     <>
@@ -28,7 +33,7 @@ function DataDisplayTable({ log, handleEditClick, handleDeleteClick }) {
                                     <td>{dateToDisplay}</td>
                                     <td>{log.hours_sleep}</td>
                                     <td>{log.sleep_quality}</td>
-                                    <td>{avgLux}</td>
+                                    <td>{log.end_lux_meter}</td>
                                     <td>{log.exposure_time}</td>
                                     <td>{log.mood_for_day}</td>
                                 </tr>
