@@ -30,7 +30,7 @@ function DataDisplayTable() {
                                     <td>{log.hours_sleep}</td>
                                     <td>{log.sleep_quality}</td>
                                     <td>{avgLux}</td>
-                                    <td>{timeOfExposure}</td>
+                                    <td>{log.exposure_time}</td>
                                     <td>{log.mood_for_day}</td>
                                 </tr>
                             </>)

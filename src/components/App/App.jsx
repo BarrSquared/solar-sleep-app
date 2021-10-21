@@ -19,7 +19,8 @@ import DataLogger from '../DataLogger/DataLogger';// fix updated to DataLogger
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage'; 
 import RegisterPage from '../RegisterPage/RegisterPage';
-import DataUoDPage from '../DataUoDPage/DataUoDPage';
+// import DataUoDPage from '../DataUoDPage/DataUoDPage';
+// now DataUoDRow, importing link on dashboard
 
 import './App.css';
 
@@ -69,13 +70,14 @@ function App() {
             <DataLogger />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          {/* Now a linked table to dashboard
+           <ProtectedRoute
             // logged in shows DataUoDPage
             exact
             path="/datauodpage"
           >
             <DataUoDPage />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
           <Route
             exact
             path="/login"

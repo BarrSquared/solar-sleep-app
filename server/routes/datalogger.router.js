@@ -43,16 +43,14 @@ router.post('/:id', (req, res) => {
   const sleepQuality = req.body.sleepQuality;
   const startLux = req.body.startLux; 
   const endLux = req.body.endLux; 
-  const startTime = req.body.startTime; 
-  const endTime = req.body.endTime; 
-  const mood = req.body.mood; 
-  const journalEntry = req.body.journalEntry;  
+  const exposureMinutes = req.body.exposureMinutes; 
+  const mood = req.body.mood;
 
   const queryText = `
-INSERT INTO "exposuredata" ("user_id", "hours_sleep", "sleep_quality", "start_lux_meter", "end_lux_meter", "start_lux_exposure_time", "end_lux_exposure_time", "mood_for_day", "journal_entry")
-VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);
+INSERT INTO "exposuredata" ("user_id", "hours_sleep", "sleep_quality", "start_lux_meter", "end_lux_meter", "exposure_time", "mood_for_day", "journal_entry")
+VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
   `;                // user.id
-  pool.query(queryText, [userId, hoursSleep, sleepQuality, startLux, endLux, startTime, endTime, mood, journalEntry])
+  pool.query(queryText, [userId, hoursSleep, sleepQuality, startLux, endLux, exposureMinutes, mood])
   .then(() => res.sendStatus(201))
   .catch((err) => {
       console.log('Error in router posting new log: ', err);

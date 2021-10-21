@@ -13,7 +13,7 @@ function DataLogger() {
   const history = useHistory();
   
   const [ newExposureLog, setNewExposureLog ] = useState({
-    hoursSleep: 0, sleepQuality: 0, startLux: 0, endLux: 0, startTime: '', endTime: '', mood: 0, journalEntry: '',  
+    hoursSleep: 0, sleepQuality: 0, startLux: 0, endLux: 0, exposureMinutes: 0, mood: 0, 
   });
   
   const handelSubmit = (event) => {
@@ -71,41 +71,23 @@ function DataLogger() {
         onChange={ (event) =>
         setNewExposureLog({...newExposureLog, endLux: event.target.value})}
         />
-        <p>Record the START time of your exposure to nearest minute.</p>
+        <p>Record the approximate minutes of exposure.</p>
         <input
         required
-        type='time'
-        placeholder='Start Time of Exposure'
+        type='number'
+        placeholder='Minutes of Exposure'
         value={newExposureLog.startTime}
         onChange={ (event) =>
-        setNewExposureLog({...newExposureLog, startTime: event.target.value})}
-        />
-        <p>Record the END time of your exposure to nearest minute.</p>
-        <input
-        required
-        type='time'
-        placeholder='Start Time of Exposure'
-        value={newExposureLog.endTime}
-        onChange={ (event) =>
-        setNewExposureLog({...newExposureLog, endTime: event.target.value})}
+        setNewExposureLog({...newExposureLog, exposureMinutes: event.target.value})}
         />
          <p>Record your mood for the day on a scale from 1 to 5, with 1 being the worst and 5 being the best.</p>
         <input
         required
         type='number'
-        placeholder='Start Time of Exposure'
+        placeholder='Mood for the day'
         value={newExposureLog.mood}
         onChange={ (event) =>
         setNewExposureLog({...newExposureLog, mood: event.target.value})}
-        />
-        <p>Optional journal entry for how you felt about your sleep or mood throughout the day.</p>
-        <input
-        
-        type='text'
-        placeholder='250 Character Limit'
-        value={newExposureLog.journalEntry}
-        onChange={ (event) =>
-        setNewExposureLog({...newExposureLog, journalEntry: event.target.value})}
         />
 
         <br />

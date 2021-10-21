@@ -24,10 +24,8 @@ CREATE TABLE "exposuredata" (
 	"sleep_quality" INT not null,
 	"start_lux_meter" INT not null,
 	"end_lux_meter" INT not null,
-	"start_lux_exposure_time" TIME not null,
-	"end_lux_exposure_time" TIME not null,
+	"exposure_time" INT not null,
 	"mood_for_day" INT not null,
-	"journal_entry" VARCHAR (250),
 	"date" date not null default CURRENT_DATE
 );
 

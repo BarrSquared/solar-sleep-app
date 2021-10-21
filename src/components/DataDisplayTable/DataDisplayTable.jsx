@@ -43,24 +43,12 @@ function DataDisplayTable() {
                             <th>Avg Lux Exposure</th>
                             <th>Exposure Duration</th>
                             <th>Mood Rating</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                     <DataDisplayRow />
-                        {/* {dashData.map((log) => {
-                            return(<>
-                                <tr>
-                                    <td>{log.date}</td>
-                                    <td>{log.hoursSleep}</td>
-                                    <td>{log.sleepQuality}</td>
-                                    <td>{avgLux}</td>
-                                    <td>{timeOfExposure}</td>
-                                    <td>{log.mood}</td>
-                                </tr>
-                            </>)
-                        })} */}
-                        {/* add component for dash table 
-                        How to map over data from server in table?*/}
+                       
                     </tbody>
                 </table>
             </div>

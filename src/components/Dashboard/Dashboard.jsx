@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, fragment } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector, useDispatch } from 'react-redux';
 import Calendar from 'react-calendar';
 import DataDisplayTable from '../DataDisplayTable/DataDisplayTable';
+import DataUoDRow from '../DataUoDRow/DataUoDRow';
 // import { GiSundial } from "react-icons/gi";
 // test sundial
 import moment from "moment";
@@ -34,27 +35,28 @@ function Dashboard() {
 
   // const [isToggled, setIsToggled] = useState(initialState(false));
 
-  const [value, setValue] = useState(new Date());
+  // const [value, setValue] = useState(new Date());
 
-  function onChange(nextValue) {
-    setValue(nextValue);
-    const dateToDisplay = moment(nextValue).format('YYYY-MM-DD');
-    dispatch({ type: 'FETCH_SELECTED_DATE_LOG'})
-  }
+  // function onChange(nextValue) {
+  //   setValue(nextValue);
+  //   const dateToDisplay = moment(nextValue).format('YYYY-MM-DD');
+  //   dispatch({ type: 'FETCH_SELECTED_DATE_LOG'})
+  // }
 
   return (
     <div className="container">
       <h3>Stay solar, {user.username}!</h3>
       {/* <p>Your ID is: {user.id}</p> */}
-      <p> {JSON.stringify(dashData)} </p>
-      <br />
+      {/* <p> {JSON.stringify(dashData)} </p> */}
+      {/* <br />
       <div className="eodCal">
         <h3>Edit or Delete Daily Log</h3>
         <Calendar onChange={onChange} value={value} />
       </div>
-      <>  </>
+      <>  </> */}
       <br />
       <DataDisplayTable />
+      
 
       <LogOutButton className="btn" />
     </div>
