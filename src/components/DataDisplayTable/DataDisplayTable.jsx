@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import DataDisplayRow from '../DataDisplayRow/DataDisplayRow';
 
@@ -41,7 +41,7 @@ function DataDisplayTable() {
                             <th>Hours of Sleep</th>
                             <th>Quality of Sleep</th>
                             <th>Avg Lux Exposure</th>
-                            <th>Duration of Exposure</th>
+                            <th>Exposure Duration</th>
                             <th>Mood Rating</th>
                         </tr>
                     </thead>

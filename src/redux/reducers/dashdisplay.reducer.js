@@ -11,6 +11,8 @@ const dashdisplayReducer = (state = [], action) => {
             // need other cases for editing specific 
             // some kind of data/id and nomenclature
             // what does that return look like?
+        case 'SET_EOD_TABLE':
+            return action.payload;
         default:
             return state;
     }

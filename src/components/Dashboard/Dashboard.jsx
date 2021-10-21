@@ -5,14 +5,13 @@ import Calendar from 'react-calendar';
 import DataDisplayTable from '../DataDisplayTable/DataDisplayTable';
 // import { GiSundial } from "react-icons/gi";
 // test sundial
+import moment from "moment";
 
 function Dashboard() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const dashData = useSelector((store) => store.dashdisplayReducer);
-  
-  const [value, onChange] = useState(new Date());
   
 
   // const dispData = () => {
@@ -33,14 +32,24 @@ function Dashboard() {
   // click event (handleSelect) from calendar, using MUI
   // in hS, dispatch 
 
+  // const [isToggled, setIsToggled] = useState(initialState(false));
+
+  const [value, setValue] = useState(new Date());
+
+  function onChange(nextValue) {
+    setValue(nextValue);
+    const dateToDisplay = moment(nextValue).format('YYYY-MM-DD');
+    dispatch({ type: 'FETCH_SELECTED_DATE_LOG'})
+  }
+
   return (
     <div className="container">
       <h3>Stay solar, {user.username}!</h3>
       {/* <p>Your ID is: {user.id}</p> */}
       <p> {JSON.stringify(dashData)} </p>
       <br />
-      <div>
-        <p>edit or delete daily log</p>
+      <div className="eodCal">
+        <h3>Edit or Delete Daily Log</h3>
         <Calendar onChange={onChange} value={value} />
       </div>
       <>  </>
