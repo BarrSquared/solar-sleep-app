@@ -73,7 +73,7 @@ function DataDisplayTable() {
 
     return (
         <div className="displayTable">
-            <h3>Weekly Log</h3>
+            <h3>Monthly Log</h3>
             <div className="dataTable">
                 <form onSubmit={handleEditLogSubmit}>
                 <table className="dataTable">

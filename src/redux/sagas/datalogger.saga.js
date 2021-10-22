@@ -35,7 +35,8 @@ function* editCurrentLog(action) {
         console.log('Action in deleteCurrentLog. Action: ', action);
         const logId = action.payload.id;
         const logItem = action.payload;
-        yield axios.put(`/api/datalogger/${logId}`);
+        yield axios.put(`/api/datalogger/${logId}`, logItem);
+        // todo Do I need this yield put?
         yield put({ type: 'FETCH_DASHBOARD_TABLE' });
         //should I add another fetch for 7 day and 30 day table?
     } catch(error) {

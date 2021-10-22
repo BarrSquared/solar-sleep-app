@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -11,6 +11,7 @@ import { useHistory } from 'react-router-dom';
 function DataLogger() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const params = useParams();
   
   const [ newExposureLog, setNewExposureLog ] = useState({
     hoursSleep: 0, sleepQuality: 0, startLux: 0, endLux: 0, exposureMinutes: 0, mood: 0, 
@@ -18,8 +19,14 @@ function DataLogger() {
   
   const handelSubmit = (event) => {
     event.preventDefault();
-    // should I add a spread operator here?
-    dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
+    if(params.id) {
+      // edit
+      console.log('Edit');
+    } else {
+      // should I add a spread operator here?
+      dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
+    }
+
     // console.log('In DataLogger, clicking form submit');
     history.push("/dashboard");
   }

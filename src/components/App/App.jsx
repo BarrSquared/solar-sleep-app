@@ -65,6 +65,13 @@ function App() {
           <ProtectedRoute //todo change info to DataLogger and datalogger
             // logged in shows InfoPage else shows LoginPage
             exact
+            path="/datalogger/:id"
+          >
+            <DataLogger />
+          </ProtectedRoute>
+          <ProtectedRoute //todo change info to DataLogger and datalogger
+            // logged in shows InfoPage else shows LoginPage
+            exact
             path="/datalogger"
           >
             <DataLogger />

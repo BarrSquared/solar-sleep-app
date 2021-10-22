@@ -29,6 +29,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 // });
 
 //todo Route for a week's worth of data to dash table
+// fix change / tag, ask question to C
 router.get('/', rejectUnauthenticated, (req, res) => {
   // GET route code here
   console.log('In dashdisplay router GET.');
@@ -37,7 +38,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   const queryText = `
     SELECT * FROM "exposuredata" WHERE "user_id" = $1
     ORDER BY "date" DESC
-    LIMIT 7;
+    LIMIT 30;
   `;
   pool.query(queryText, [userId])
     .then((results) => res.send(results.rows))
