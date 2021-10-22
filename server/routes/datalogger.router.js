@@ -28,15 +28,16 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 /**
  * PUT route template
  */
-// router.put('/:id', rejectUnauthenticated, (req, res) => {
-//   // PUT route code here
-//   console.log('PUT updating log A id: ', req.params.id);
-//   console.log('PUT updating log B id: ', req.body.logId);
-//   const userId = req.user.id;
-//   const logId = req.body.logId;
-//   const 
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+  // PUT route code here
+  console.log('PUT updating log A id: ', req.params.id);
+  const userId = req.user.id;
+  const logId = req.body.logId;
+  // 
+  console.log(req.body);
+  res.sendStatus(200);
 
-// });
+});
 
 /**
  * POST route template

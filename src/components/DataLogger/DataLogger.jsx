@@ -22,6 +22,8 @@ function DataLogger() {
     if(params.id) {
       // edit
       console.log('Edit');
+      
+      dispatch({ type: 'EDIT_CURRENT_LOG', payload: {...newExposureLog, id: params.id} });
     } else {
       // should I add a spread operator here?
       dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
