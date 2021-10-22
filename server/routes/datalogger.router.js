@@ -30,10 +30,13 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
  */
 router.put('/:id', rejectUnauthenticated, (req, res) => {
   // PUT route code here
-  console.log('PUT updating log A id: ', req.params.id);
+  console.log('PUT updating logId: ', req.params.id);
   const userId = req.user.id;
   const logId = req.body.logId;
-  // 
+  // add query text, .pool, and .then
+  const queryText = `
+    
+  `;
   console.log(req.body);
   res.sendStatus(200);
 

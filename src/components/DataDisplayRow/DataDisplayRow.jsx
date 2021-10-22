@@ -4,8 +4,8 @@ import moment from "moment";
 
 function DataDisplayTable({ log, handleEditClick, handleDeleteClick }) {
     const dispatch = useDispatch();
-
-    const dateToDisplay = moment(log.date).format('YYYY-MM-DD');
+// fix momentjs month abr then day
+    const dateToDisplay = moment(log.date).format('MMM Do');
 
     // todo Should I change DataUoDRow to UpdateRow,
     // todo pass into this component by passing in the 
