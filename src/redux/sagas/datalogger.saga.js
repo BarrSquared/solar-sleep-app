@@ -20,13 +20,13 @@ function* deleteCurrentLog(action) {
     const logId = action.payload.id;
     console.log('Action in deleteCurrentLog. logId: ', logId);
     console.log('Action in deleteCurrentLog. Action: ', action);
-    // try {
-    //     const logId = action.payload.id;
-    //     yield axios.delete(`/api/datalogger/${logId}`);
-    //     yield put({ type: 'FETCH_DASHBOARD_TABLE' });
-    // } catch(error) {
-    //     console.log('Error deleting log, error: ', error);
-    // }
+    try {
+        const logId = action.payload.id;
+        yield axios.delete(`/api/datalogger/${logId}`);
+        yield put({ type: 'FETCH_DASHBOARD_TABLE' });
+    } catch(error) {
+        console.log('Error deleting log, error: ', error);
+    }
 }
 
 // todo finish PUT route

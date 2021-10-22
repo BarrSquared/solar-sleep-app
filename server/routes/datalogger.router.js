@@ -8,21 +8,22 @@ const router = express.Router();
  * DELETE route
  */
 //todo start of delete
-// router.delete('/:id', rejectUnauthenticated, (req, res) => {
-//   const logId = req.params.id;
-//   const userId = req.user.id;
-//   const queryText = `
-//   DELETE FROM "exposuredata" WHERE ("id" = $1 AND "user_id" = $2);
-//   `;
-//   pool.query(queryText, [logId, userId])
-//   .then((result) => {
-//     res.sendStatus(201);
-//   })
-//   .catch((err) => {
-//     console.log('Error in deleting log. Error: ', err);
-//     res.sendStatus(500);
-//   })
-// });
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  const logId = req.params.id;
+  const userId = req.user.id;
+  console.log('In datalogger router delete, log id: ', logId);
+  const queryText = `
+  DELETE FROM "exposuredata" WHERE ("id" = $1);
+  `;
+  pool.query(queryText, [logId])
+  .then((result) => {
+    res.sendStatus(201);
+  })
+  .catch((err) => {
+    console.log('Error in deleting log. Error: ', err);
+    res.sendStatus(500);
+  })
+});
 
 /**
  * PUT route template
