@@ -16,17 +16,18 @@ function* logNewData(action) {
 }
 
 // todo finish delete route
-// function* deleteCurrentLog(action) {
-//     try {
-//         console.log('Action in deleteCurrentLog. Action: ', action);
-//         const logId = action.payload.id;
-//         const logDate = action.payload.date;
-//         yield axios.delete(`/api/datalogger/${logId}`);
-//         yield put({ type: 'FETCH_DASHBOARD_TABLE' });
-//     } catch(error) {
-//         console.log('Error deleting log, error: ', error);
-//     }
-// }
+function* deleteCurrentLog(action) {
+    const logId = action.payload.id;
+    console.log('Action in deleteCurrentLog. logId: ', logId);
+    console.log('Action in deleteCurrentLog. Action: ', action);
+    // try {
+    //     const logId = action.payload.id;
+    //     yield axios.delete(`/api/datalogger/${logId}`);
+    //     yield put({ type: 'FETCH_DASHBOARD_TABLE' });
+    // } catch(error) {
+    //     console.log('Error deleting log, error: ', error);
+    // }
+}
 
 // todo finish PUT route
 function* editCurrentLog(action) {
@@ -46,7 +47,7 @@ function* dataLoggerSaga() {
     // Saga listening for trigger to add new data
     yield takeLatest('ADD_NEW_LOG', logNewData);
 
-    // yield takeLatest('DELETE_CURRENT_LOG', deleteCurrentLog);
+    yield takeLatest('DELETE_CURRENT_LOG', deleteCurrentLog);
 
     yield takeLatest('EDIT_CURRENT_LOG', editCurrentLog);
 }

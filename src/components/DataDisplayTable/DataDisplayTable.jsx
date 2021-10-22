@@ -41,16 +41,13 @@ function DataDisplayTable() {
         setEditLogData(formValues);
     }
 
-    const handleDeleteClick = (logId) => {
-// todo Finish dispatch and router actions
-    console.log('Clicking handle delete, logId: ', logId);
-        // const newLog = [...dataLogs];
-
-        // const index = dataLogs.findIndex((log) => log.id === logId);
-
-        // newLog.splice(index, 1);
-
-        // setDataLogs(newLog);
+    const handleDeleteClick = (editLogId) => {
+    // todo Finish dispatch and router actions
+        console.log('Clicking handle delete, logId: ', editLogId);
+        dispatch({ 
+            type: 'DELETE_CURRENT_LOG', 
+            payload: {id: editLogId}
+        });
     }
 
     const handleEditLogSubmit = (event) => {
