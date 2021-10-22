@@ -6,7 +6,8 @@ import DataUoDRow from '../DataUoDRow/DataUoDRow';
 
 function DataDisplayTable() {
     const dispatch = useDispatch();
-    const [dataLogs, setDataLogs] = useSelector((store) => store.dashdisplayReducer);
+    // const [dataLogs, setDataLogs] = useSelector((store) => store.dashdisplayReducer);
+    const dashDisplay = useSelector((store) => store.dashdisplayReducer);
     const [editLogId, setEditLogId] = useState(null);
     const [editLogData, setEditLogData] = useState({
         hoursSleep: 0, sleepQuality: 0, startLux: 0, endLux: 0, exposureMinutes: 0, mood: 0, 
@@ -92,23 +93,13 @@ function DataDisplayTable() {
                     </thead>
                     <tbody>
                     {/* <DataDisplayRow /> */}
-                    {dataLogs.map((log) => (
-                        <Fragment>
-                            {editLogId === log.id ? (
-                                <DataUoDRow
-                                editLogData={editLogData}
-                                handleEditLogChange={handleEditLogChange}
-                                handleCancelClick={handleCancelClick}
-                                />
-                            ) : (
+                    {dashDisplay.map((log) => (
                                 <DataDisplayRow
                                 log={log}
                                 handleEditClick={handleEditClick}
                                 handleDeleteClick={handleDeleteClick}
                                 />
-                            )}
-                        </Fragment>
-                    ))}
+                            ))}
                        
                     </tbody>
                 </table>
@@ -122,3 +113,4 @@ function DataDisplayTable() {
 }
 
 export default DataDisplayTable;
+

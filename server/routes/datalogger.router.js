@@ -3,12 +3,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * PUT route template
- */
-// router.get('/', (req, res) => {
-//   // GET route code here
-// });
 
 /** 
  * DELETE route
@@ -31,11 +25,24 @@ const router = express.Router();
 // });
 
 /**
+ * PUT route template
+ */
+// router.put('/:id', rejectUnauthenticated, (req, res) => {
+//   // PUT route code here
+//   console.log('PUT updating log A id: ', req.params.id);
+//   console.log('PUT updating log B id: ', req.body.logId);
+//   const userId = req.user.id;
+//   const logId = req.body.logId;
+//   const 
+
+// });
+
+/**
  * POST route template
  */
 // if I need another kind of POST, 
 // add '/newaddress' and in other files it would '/datalogger/newaddress'
-router.post('/:id', (req, res) => { 
+router.post('/', (req, res) => { 
   // POST route code here, to post input data from datalogger page
 //   console.log('WTF user id: ', req.user.id);
   const userId = req.user.id;
@@ -48,7 +55,7 @@ router.post('/:id', (req, res) => {
 
   const queryText = `
 INSERT INTO "exposuredata" ("user_id", "hours_sleep", "sleep_quality", "start_lux_meter", "end_lux_meter", "exposure_time", "mood_for_day")
-VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
+VALUES ($1, $2, $3, $4, $5, $6, $7);
   `;                // user.id
   pool.query(queryText, [userId, hoursSleep, sleepQuality, startLux, endLux, exposureMinutes, mood])
   .then(() => res.sendStatus(201))
