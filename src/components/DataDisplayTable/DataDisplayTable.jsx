@@ -42,8 +42,9 @@ function DataDisplayTable() {
     }
 
     const handleDeleteClick = (logId) => {
-// todo 
-        const newLog = [...dataLogs];
+// todo Finish dispatch and router actions
+    console.log('Clicking handle delete, logId: ', logId);
+        // const newLog = [...dataLogs];
 
         // const index = dataLogs.findIndex((log) => log.id === logId);
 
