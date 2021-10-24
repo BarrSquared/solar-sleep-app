@@ -4,6 +4,8 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 
+// import Paper from 'material-ui/paper';
+
 function Nav() {
   const user = useSelector((store) => store.user);
 
