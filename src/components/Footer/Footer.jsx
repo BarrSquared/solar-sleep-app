@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import { IoSunnyOutline } from 'react-icons/io5';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -7,7 +8,7 @@ import './Footer.css';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 function Footer() {
-  return <footer>&copy; Russell Barr </footer>;
+  return <footer><IoSunnyOutline /> Russell Barr <IoSunnyOutline /> </footer>;
 }
 
 export default Footer;
