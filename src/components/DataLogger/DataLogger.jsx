@@ -20,12 +20,12 @@ function DataLogger() {
   const handelSubmit = (event) => {
     event.preventDefault();
     if(params.id) {
-      // edit
+      // if log exists, edit
       console.log('Edit');
       
       dispatch({ type: 'EDIT_CURRENT_LOG', payload: {...newExposureLog, id: params.id} });
     } else {
-      // should I add a spread operator here?
+      // else add new log
       dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
     }
 
