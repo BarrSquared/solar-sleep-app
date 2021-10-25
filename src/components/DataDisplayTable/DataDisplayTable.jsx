@@ -87,6 +87,7 @@ function DataDisplayTable() {
                     <thead>
                         <tr>
                             <th>Date</th>
+                            <th>Log ID</th>
                             <th>Hours of Sleep</th>
                             <th>Quality of Sleep</th>
                             <th>Start Lux</th>

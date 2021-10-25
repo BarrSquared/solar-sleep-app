@@ -21,6 +21,7 @@ function DataDisplayTable({ log, handleEditClick, handleDeleteClick }) {
     <>
         <tr>
             <td>{dateToDisplay}</td>
+            <td>{log.id}</td>
             <td>{log.hours_sleep}</td>
             <td>{log.sleep_quality}</td>
             <td>{log.start_lux_meter}</td>
