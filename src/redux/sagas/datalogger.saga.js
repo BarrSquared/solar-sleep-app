@@ -4,7 +4,7 @@ import axios from 'axios';
 // 
 function* logNewData(action) {
     try {
-        console.log('Action from dataLoggerSaga. Action: ', action);
+        console.log('in saga.js, Action from dataLoggerSaga. Action: ', action);
         const newData = action.payload;
         // posting new user lux/sleep data to the server
         yield axios.post('/api/datalogger', newData);
@@ -18,8 +18,8 @@ function* logNewData(action) {
 // todo finish delete route
 function* deleteCurrentLog(action) {
     const logId = action.payload.id;
-    console.log('Action in deleteCurrentLog. logId: ', logId);
-    console.log('Action in deleteCurrentLog. Action: ', action);
+    console.log('in saga.js, Action in deleteCurrentLog. logId: ', logId);
+    console.log('in saga.js, Action in deleteCurrentLog. Action: ', action);
     try {
         const logId = action.payload.id;
         yield axios.delete(`/api/datalogger/${logId}`);
@@ -32,7 +32,7 @@ function* deleteCurrentLog(action) {
 // todo finish PUT route
 function* editCurrentLog(action) {
     try {
-        console.log('Action in deleteCurrentLog. Action: ', action);
+        console.log('in saga.js, Action in deleteCurrentLog. Action: ', action);
         const logId = action.payload.id;
         const logItem = action.payload;
         yield axios.put(`/api/datalogger/${logId}`, logItem);

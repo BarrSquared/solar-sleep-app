@@ -20,20 +20,20 @@ function DataLogger() {
   
   const handelSubmit = (event) => {
     console.log('in handleSubmit trying to UPDATE, params.id: ', params.id);
-    console.log('in HS, params: ', params);
-    // event.preventDefault();
-    // if(params.id) {
-    //   // if log exists, edit
-    //   console.log('Edit');
+    // console.log('in HS, params: ', params);
+    event.preventDefault();
+    if(params.id) {
+      // if log exists, edit
+      console.log('Edit');
       
-    //   dispatch({ type: 'EDIT_CURRENT_LOG', payload: {...newExposureLog, id: params.id} });
-    // } else {
-    //   // else add new log
-    //   dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
-    // }
+      dispatch({ type: 'EDIT_CURRENT_LOG', payload: {...newExposureLog, id: params.id} });
+    } else {
+      // else add new log
+      dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
+    }
 
-    // // console.log('In DataLogger, clicking form submit');
-    // history.push("/dashboard");
+    // console.log('In DataLogger, clicking form submit');
+    history.push("/dashboard");
   }
 
   const handelCancel = () => {
