@@ -46,7 +46,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
   = ($1, $2, $3, $4, $5, $6)
   WHERE "id" = $7;
   `;
-  pool.query((query), [hoursSleep, sleepQuality, startLux, endLux, exposureMinutes, mood, logId])
+  pool.query((queryText), [hoursSleep, sleepQuality, startLux, endLux, exposureMinutes, mood, logId])
   .then((response) => {
     res.sendStatus(201);
   }).catch((error) => {
