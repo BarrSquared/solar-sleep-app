@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import moment from "moment";
 import DataDisplayRow from '../DataDisplayRow/DataDisplayRow';
 import DataUoDRow from '../DataUoDRow/DataUoDRow';
@@ -12,6 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 function DataDisplayTable() {
+    const history = useHistory();
     const dispatch = useDispatch();
     // const [dataLogs, setDataLogs] = useSelector((store) => store.dashdisplayReducer);
     const dashDisplay = useSelector((store) => store.dashdisplayReducer);
@@ -32,20 +34,20 @@ function DataDisplayTable() {
         setEditLogId(null);
     }
 
-    const handleEditClick = (event, log) => {
-        event.preventDefault();
-        setEditLogId(log.id);
+    const handleEditClick = (editLogId) => {
+        history.push(`/datalogger/${editLogId}`);
+        // setEditLogId(log.id);
 
-        const formValues = {
-            date: log.date,
-            houseSleep: log.hoursSleep,
-            sleepQuality: log.sleepQuality,
-            startLux: log.startLux,
-            endLux: log.endLux,
-            exposureMinutes: log.exposureMinutes,
-            mood: log.mood,
-        };
-        setEditLogData(formValues);
+        // const formValues = {
+        //     date: log.date,
+        //     houseSleep: log.hoursSleep,
+        //     sleepQuality: log.sleepQuality,
+        //     startLux: log.startLux,
+        //     endLux: log.endLux,
+        //     exposureMinutes: log.exposureMinutes,
+        //     mood: log.mood,
+        // };
+        // setEditLogData(formValues);
     }
 
     const handleDeleteClick = (editLogId) => {
@@ -104,6 +106,7 @@ function DataDisplayTable() {
                                 log={log}
                                 handleEditClick={handleEditClick}
                                 handleDeleteClick={handleDeleteClick}
+
                                 />
                             ))}
                        

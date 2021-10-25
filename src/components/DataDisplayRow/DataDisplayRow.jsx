@@ -35,6 +35,12 @@ function DataDisplayTable({ log, handleEditClick, handleDeleteClick }) {
                     Delete
                 </button>
             </td>
+            <td>
+                <button type="button" 
+                onClick={() => handleEditClick(log.id)}>
+                    Edit
+                </button>
+            </td>
         </tr>
     </>
     )
