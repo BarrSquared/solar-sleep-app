@@ -12,25 +12,28 @@ function DataLogger() {
   const dispatch = useDispatch();
   const history = useHistory();
   const params = useParams();
+  // const logToEdit = useSelector((store) => store.dashdisplayReducer);
   
   const [ newExposureLog, setNewExposureLog ] = useState({
     hoursSleep: 0, sleepQuality: 0, startLux: 0, endLux: 0, exposureMinutes: 0, mood: 0, 
   });
   
   const handelSubmit = (event) => {
-    event.preventDefault();
-    if(params.id) {
-      // if log exists, edit
-      console.log('Edit');
+    console.log('in handleSubmit trying to UPDATE, params.id: ', params.id);
+    console.log('in HS, params: ', params);
+    // event.preventDefault();
+    // if(params.id) {
+    //   // if log exists, edit
+    //   console.log('Edit');
       
-      dispatch({ type: 'EDIT_CURRENT_LOG', payload: {...newExposureLog, id: params.id} });
-    } else {
-      // else add new log
-      dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
-    }
+    //   dispatch({ type: 'EDIT_CURRENT_LOG', payload: {...newExposureLog, id: params.id} });
+    // } else {
+    //   // else add new log
+    //   dispatch({ type: 'ADD_NEW_LOG', payload: newExposureLog });
+    // }
 
-    // console.log('In DataLogger, clicking form submit');
-    history.push("/dashboard");
+    // // console.log('In DataLogger, clicking form submit');
+    // history.push("/dashboard");
   }
 
   const handelCancel = () => {
@@ -41,8 +44,9 @@ function DataLogger() {
   return (
     <div className="container">
       <h3>Data Logger</h3>
-      <p> </p>
+      <p></p>
       <p>Fill out form below to record today's lux exposure data and sleep quality metrics.</p>
+      <p>To update a previous log, in the url add '/#' with # being the log ID you want to update!</p>
       <form onSubmit={handelSubmit}>
         <p>Approximate hours of sleep.</p>
         <input

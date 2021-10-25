@@ -42,7 +42,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
   const mood = req.body.mood;
   // // add query text, .pool, and .then
   const queryText = `
-  UPDATE "exposuredata" SET ("hour_sleep", "sleep_quality", "start_lux_meter", "end_lux_meter", "exposure_time", "mood_for_day")
+  UPDATE "exposuredata" SET ("hours_sleep", "sleep_quality", "start_lux_meter", "end_lux_meter", "exposure_time", "mood_for_day")
   = ($1, $2, $3, $4, $5, $6)
   WHERE "id" = $7;
   `;
