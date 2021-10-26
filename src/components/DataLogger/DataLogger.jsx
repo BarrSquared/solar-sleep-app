@@ -46,7 +46,8 @@ function DataLogger() {
       <h3>Data Logger</h3>
       <p></p>
       <p>Fill out form below to record today's lux exposure data and sleep quality metrics.</p>
-      <p>To update a previous log, in the url add '/#' with # being the log ID you want to update!</p>
+      <p></p>
+      <p>To update a previous log, make sure to have an accurate value in all fields!</p>
       <form onSubmit={handelSubmit}>
         <p>Approximate hours of sleep.</p>
         <input
