@@ -7,7 +7,7 @@ const router = express.Router();
 /** 
  * DELETE route
  */
-//todo start of delete
+
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   const logId = req.params.id;
   const userId = req.user.id;
