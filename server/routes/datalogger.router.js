@@ -30,29 +30,29 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
  */
 router.put('/:id', rejectUnauthenticated, (req, res) => {
   // PUT route code here
-  console.log('In PUT, req.body = ', req.body.logId);
-  console.log('PUT updating logId: ', req.params.id);
-  // const userId = req.user.id;
-  const logId = req.body.logId;
-  // const hoursSleep = req.body.hoursSleep;
-  // const sleepQuality = req.body.sleepQuality;
-  // const startLux = req.body.startLux;
-  // const endLux = req.body.endLux;
-  // const exposureMinutes = req.body.exposureMinutes;
-  // const mood = req.body.mood;
-  // // // add query text, .pool, and .then
-  // const queryText = `
-  // UPDATE "exposuredata" SET ("hours_sleep", "sleep_quality", "start_lux_meter", "end_lux_meter", "exposure_time", "mood_for_day")
-  // = ($1, $2, $3, $4, $5, $6)
-  // WHERE "id" = $7;
-  // `;
-  // pool.query((queryText), [hoursSleep, sleepQuality, startLux, endLux, exposureMinutes, mood, logId])
-  // .then((response) => {
-  //   res.sendStatus(201);
-  // }).catch((error) => {
-  //   console.log('Error editing log id: ', logId);
-  //   res.sendStatus(500);
-  // });
+  // console.log('In PUT, req.body.logId: ', req.body.logId);
+  console.log('In PUT, req.params.id: ', req.params.id);
+  const userId = req.user.id;
+  const logId = req.params.id;
+  const hoursSleep = req.body.hoursSleep;
+  const sleepQuality = req.body.sleepQuality;
+  const startLux = req.body.startLux;
+  const endLux = req.body.endLux;
+  const exposureMinutes = req.body.exposureMinutes;
+  const mood = req.body.mood;
+  // // add query text, .pool, and .then
+  const queryText = `
+  UPDATE "exposuredata" SET ("hours_sleep", "sleep_quality", "start_lux_meter", "end_lux_meter", "exposure_time", "mood_for_day")
+  = ($1, $2, $3, $4, $5, $6)
+  WHERE "id" = $7;
+  `;
+  pool.query((queryText), [hoursSleep, sleepQuality, startLux, endLux, exposureMinutes, mood, logId])
+  .then((response) => {
+    res.sendStatus(201);
+  }).catch((error) => {
+    console.log('Error editing log id: ', logId);
+    res.sendStatus(500);
+  });
   });
 
 

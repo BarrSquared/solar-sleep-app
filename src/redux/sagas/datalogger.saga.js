@@ -15,7 +15,7 @@ function* logNewData(action) {
     }
 }
 
-// todo finish delete route
+
 function* deleteCurrentLog(action) {
     const logId = action.payload.id;
     console.log('in saga.js, Action in deleteCurrentLog. logId: ', logId);
@@ -29,14 +29,14 @@ function* deleteCurrentLog(action) {
     }
 }
 
-// todo finish PUT route
+
 function* editCurrentLog(action) {
     try {
         console.log('in saga.js, Action in deleteCurrentLog. Action: ', action);
         const logId = action.payload.id;
         const logItem = action.payload;
         yield axios.put(`/api/datalogger/${logId}`, logItem);
-        // todo Do I need this yield put?
+        
         yield put({ type: 'FETCH_DASHBOARD_TABLE' });
         //should I add another fetch for 7 day and 30 day table?
     } catch(error) {
