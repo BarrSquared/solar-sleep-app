@@ -38,6 +38,7 @@
     "server": "nodemon --watch server server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "testServer": "NODE_ENV=test jest test/*.*.test.js --coverage --forceExit --detectOpenHandles",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
