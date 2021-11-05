@@ -1,4 +1,5 @@
 import { put, takeLatest } from 'redux-saga/effects';
+// importing saga tools and axios to complete watcher function, put/dispatch to waters, and axios requests to server
 import axios from 'axios';
 
 // 

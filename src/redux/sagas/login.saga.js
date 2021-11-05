@@ -59,7 +59,9 @@ function* logoutUser(action) {
 }
 
 function* loginSaga() {
+  // Saga listening for dispatch to loginUser
   yield takeLatest('LOGIN', loginUser);
+  // Saga listening for dispatch to logOutUser
   yield takeLatest('LOGOUT', logoutUser);
 }
 
