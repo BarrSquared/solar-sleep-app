@@ -4,13 +4,8 @@ import { useHistory } from 'react-router-dom';
 import moment from "moment";
 import DataDisplayRow from '../DataDisplayRow/DataDisplayRow';
 import DataUoDRow from '../DataUoDRow/DataUoDRow';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { Table, TableBody, TableCell, TableContainer, Typography, TableHead, TableRow, Paper, Button, ButtonGroup } from '@mui/material';
+
 
 function DataDisplayTable() {
     const history = useHistory();
@@ -51,7 +46,7 @@ function DataDisplayTable() {
     }
 
     const handleDeleteClick = (editLogId) => {
-    // todo Finish dispatch and router actions
+    
         console.log('Clicking handle delete, logId: ', editLogId);
         dispatch({ 
             type: 'DELETE_CURRENT_LOG', 
@@ -85,21 +80,22 @@ function DataDisplayTable() {
             <h3>Monthly Log</h3>
             <div className="dataTable">
                 <form onSubmit={handleEditLogSubmit}>
-                <table className="dataTable">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Log ID</th>
-                            <th>Hours of Sleep</th>
-                            <th>Quality of Sleep</th>
-                            <th>Start Lux</th>
-                            <th>End Lux</th>
-                            <th>Exposure Duration</th>
-                            <th>Mood Rating</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 350 }} size="small" aria-label="display table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell><Typography variant="h6">Date</Typography></TableCell>
+                            <TableCell><Typography variant="h6">Log ID</Typography></TableCell>
+                            <TableCell><Typography variant="h6">Hours of Sleep</Typography></TableCell>
+                            <TableCell><Typography variant="h6">Quality of Sleep</Typography></TableCell>
+                            <TableCell><Typography variant="h6">Start Lux</Typography></TableCell>
+                            <TableCell><Typography variant="h6">End Lux</Typography></TableCell>
+                            <TableCell><Typography variant="h6">Exposure Duration</Typography></TableCell>
+                            <TableCell><Typography variant="h6">Mood Rating</Typography></TableCell>
+                            <TableCell><Typography variant="h6">Actions</Typography></TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                     {/* <DataDisplayRow /> */}
                     {dashDisplay.map((log) => (
                                 <DataDisplayRow
@@ -110,8 +106,9 @@ function DataDisplayTable() {
                                 />
                             ))}
                        
-                    </tbody>
-                </table>
+                    </TableBody>
+                    </Table>
+                </TableContainer>
                 </form>
             </div>
 
