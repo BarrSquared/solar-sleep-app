@@ -14,8 +14,8 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import Dashboard from '../Dashboard/Dashboard'; // fix Updated to dashboard
-import DataLogger from '../DataLogger/DataLogger';// fix updated to DataLogger
+import Dashboard from '../Dashboard/Dashboard'; 
+import DataLogger from '../DataLogger/DataLogger';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage'; 
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -56,20 +56,20 @@ function App() {
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
-            exact // fix Updated to dashboard
+            exact
             path="/dashboard"
           >
             <Dashboard />
           </ProtectedRoute>
 
-          <ProtectedRoute //todo change info to DataLogger and datalogger
+          <ProtectedRoute 
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/datalogger/:id"
           >
             <DataLogger />
           </ProtectedRoute>
-          <ProtectedRoute //todo change info to DataLogger and datalogger
+          <ProtectedRoute 
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/datalogger"
@@ -92,7 +92,7 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
-              <Redirect to="/dashboard" /> // fix Updated to dashboard
+              <Redirect to="/dashboard" />
               :
               // Otherwise, show the login page
               <LoginPage />
@@ -106,7 +106,7 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/dashboard" /> // fix Updated to dashboard
+              <Redirect to="/dashboard" /> 
               :
               // Otherwise, show the registration page
               <RegisterPage />
@@ -120,7 +120,7 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/dashboard" /> // fix Updated to dashboard
+              <Redirect to="/dashboard" /> 
               :
               // Otherwise, show the Landing page
               <LandingPage />

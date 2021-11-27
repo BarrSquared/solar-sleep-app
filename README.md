@@ -67,6 +67,10 @@ This code is also heavily commented. We recommend reading through the comments, 
 
 - src/components
   - App/App
+  - Dashboard
+  - DataDisplayTable
+  - DataDisplayRow
+  - DataLogger
   - Footer/Footer
   - Nav/Nav
   - AboutPage/AboutPage
