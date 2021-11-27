@@ -1,6 +1,6 @@
 # Solar Sleep App
 
-This app is intended to track user's early morning sun lux exposure and sleep quality. It currently requires the user to access another application to measure sun lux exposure, a future feature will incorporate . Then has the user input their data in a RESTful API
+This app is intended to track user's early morning sun lux exposure and sleep quality. It currently requires the user to access another application to measure sun lux exposure, a future feature will incorporate using the phones sensors to record lux. The user enters their data into a RESTful API.
 
 # EDA Project
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
